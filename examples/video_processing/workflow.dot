@@ -1,0 +1,13 @@
+digraph Workflow {
+rankdir="LR";
+node [shape=box];
+"upload" -> "extract-thumbnail";
+"upload" -> "transcode-video";
+"extract-audio" -> "publish";
+"extract-thumbnail" -> "publish";
+"transcode-video" -> "publish";
+"upload";
+"upload" -> "extract-audio";
+"upload"[shape=ellipse];
+"publish"[peripheries=2];
+}

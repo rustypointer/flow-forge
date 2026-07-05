@@ -1,0 +1,12 @@
+digraph Workflow {
+rankdir="LR";
+node [shape=box];
+"create-email" -> "grant-github";
+"create-email" -> "grant-vpn";
+"grant-github" -> "notify-manager";
+"grant-vpn" -> "notify-manager";
+"create-employee";
+"create-employee" -> "create-email";
+"create-employee"[shape=ellipse];
+"notify-manager"[peripheries=2];
+}

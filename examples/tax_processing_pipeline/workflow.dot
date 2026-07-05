@@ -1,0 +1,13 @@
+digraph Workflow {
+rankdir="LR";
+node [shape=box];
+"fetch-26as";
+"fetch-ais" -> "merge-tax-data";
+"fetch-26as" -> "merge-tax-data";
+"merge-tax-data" -> "calculate-tax";
+"calculate-tax" -> "generate-summary";
+"fetch-ais";
+"fetch-26as"[shape=ellipse];
+"fetch-ais"[shape=ellipse];
+"generate-summary"[peripheries=2];
+}

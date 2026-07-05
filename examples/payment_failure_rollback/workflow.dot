@@ -1,0 +1,9 @@
+digraph Workflow {
+rankdir="LR";
+node [shape=box];
+"create-user" -> "create-wallet";
+"create-wallet" -> "charge-payment";
+"create-user";
+"create-user"[shape=ellipse];
+"charge-payment"[peripheries=2];
+}

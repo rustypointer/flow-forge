@@ -286,6 +286,7 @@ The codebase includes working demonstration apps inside the `examples/` director
 Located at `examples/ecommerce_order/main.go`. It represents a checkout pipeline where user accounts and digital wallets are created concurrently, followed by order placement, payment, and notifications.
 
 **Workflow Visualization:**
+
 ![E-Commerce Order Flow](examples/ecommerce_order/visual.png)
 
 **Step Definitions:**
@@ -339,6 +340,7 @@ wf.AddStep(&workflow.Step{
 Located at `examples/employee_onboarding/main.go`. This example shows how corporate workflows spawn parallel access provisioning for multiple corporate assets (GitHub, VPN) after a profile is set up.
 
 **Workflow Visualization:**
+
 ![Employee Onboarding](examples/employee_onboarding/visual.png)
 
 **Step Definitions:**
@@ -356,6 +358,7 @@ add(step("notify-manager", "grant-github", "grant-vpn")) // Leaf
 Located at `examples/payment_failure_rollback/main.go`. This demonstrates the **Saga Pattern rollback execution**. It builds a simple pipeline that fails during the payment processing stage, triggering reverse topological rollbacks.
 
 **Workflow Visualization:**
+
 ![Payment Failure Rollback](examples/payment_failure_rollback/visual.png)
 
 **Run Behavior:**
@@ -374,6 +377,7 @@ Located at `examples/payment_failure_rollback/main.go`. This demonstrates the **
 Located at `examples/tax_processing_pipeline/main.go`. A data collection and calculation workflow showing parallel data extraction stages feeding into a single calculation step.
 
 **Workflow Visualization:**
+
 ![Tax Processing Pipeline](examples/tax_processing_pipeline/visual.png)
 
 **Step Definitions:**
@@ -391,6 +395,7 @@ add(create("generate-summary", "calculate-tax"))
 Located at `examples/video_processing/main.go`. Demonstrates heavy "fan-out" and "fan-in" topologies. An uploaded video file spawns three concurrent processing tasks (audio extraction, thumbnail creation, video transcoding) before completing.
 
 **Workflow Visualization:**
+
 ![Video Processing Pipeline](examples/video_processing/visual.png)
 
 **Step Definitions:**

@@ -1,4 +1,4 @@
-# workflow_engine
+# Flow Forge
 
 A production-grade, concurrent workflow execution engine for Go. It allows developers to define multi-step workflows as Directed Acyclic Graphs (DAGs), run independent steps concurrently using a worker pool, retry failing steps with exponential backoff and jitter, and automatically roll back completed steps on failure using the Saga pattern.
 
@@ -75,7 +75,9 @@ workflow_engine/
         └── workflow.go              # Workflow registry container
 ```
 
-### Execution Flow
+---
+
+### Workflow Execution Lifecycle
 ```mermaid
 graph TD
     A[Define Workflow & Steps] --> B[compiler.Compile]
@@ -99,16 +101,6 @@ graph TD
     O --> Q[Topological Rollback in Reverse Stage Order]
     P --> Q
     Q --> R[Mark ROLLED_BACK / FAILED]
-```
-
----
-
-## Installation
-
-Ensure you have **Go 1.26+** installed. Download and install `workflow_engine` using:
-
-```bash
-go get workflow_engine
 ```
 
 ---
@@ -455,7 +447,9 @@ By introducing a simulated workload delay of **100 microseconds per step**, we c
 | **16 Workers** (oversubscribed) | 5.76 ms | 12.87x | - |
 | **32 Workers** (oversubscribed) | 3.20 ms | 23.18x | - |
 
-**Key Takeaways for Resume/Readme:**
+---
+
+**Key Takeaways:**
 1. **Linear Concurrency Scaling**: Reached a **23.18x speedup** on 32 workers (reducing runtime from 74.20ms to 3.20ms) for independent parallel tasks.
 2. **Minimal Synchronization Overhead**: Core engine scheduling adds only **~7 microseconds** of coordination overhead per step (as shown by `BenchmarkExecuteParallel_100Nodes_10Workers` at 703µs total for 100 steps).
 3. **Optimized Persistence Footprint**: Enabling persistence store state updates adds negligible overhead (~100 bytes and 4 allocs per run).
